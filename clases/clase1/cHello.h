@@ -9,4 +9,5 @@ public:
 	int number;		// attributes
 
 	void sayHello(); // methods
+  Hello();
 };
