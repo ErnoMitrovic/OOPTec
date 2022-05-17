@@ -5,4 +5,6 @@ Hello::Hello(){
   number = 0;
 }
 
-void Hello::sayHello(){}
+void Hello::sayHello(){
+  cout << message << endl;
+}

@@ -8,6 +8,6 @@ public:
 	string message; // attributes
 	int number;		// attributes
 
-	void sayHello(); // methods
-  Hello();
+	Hello();			// Constructor
+	void sayHello(); 	// methods
 };
