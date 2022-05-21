@@ -49,7 +49,7 @@ Fraction* Fraction::mult (Fraction* f2){
 * Implemets printing of fractions
 */
 void Fraction::printFrac(void){
-  std::cout << num << '/' << den << std::endl;
+  std::cout << num << '/' << den;
 }
 
 int Fraction::getNum(){
