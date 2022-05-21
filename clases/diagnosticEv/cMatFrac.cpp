@@ -86,7 +86,9 @@ void MatFrac::printFracs(){
   for(int i = 0; i < size; i++){
     for(int j = 0; j < size; j++){
       matriz[i][j].printFrac();
+      std::cout << ' ';
     }
+    std::cout << '\n';
   }
 }
 
