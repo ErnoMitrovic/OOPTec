@@ -1,10 +1,12 @@
-#include "cFraction.h"
+#include "cMatFrac.h"
 
 int main(){
-  Fraction* f1 = new Fraction(), *f2 = new Fraction(6,8);
-  f1 -> printFrac();
-  f2 -> printFrac();
-  Fraction * sum = f2 -> add(f2);
-  sum -> printFrac();
-  return 0;
+  // MatFrac * m1 = new MatFrac("./test.txt");
+  // m1 -> printFracs();
+  std::ifstream s;
+  s.open("test.txt");
+  if(!s){
+    std::cerr << "File couldn't be opened\n";
+    exit(1);
+  }
 }

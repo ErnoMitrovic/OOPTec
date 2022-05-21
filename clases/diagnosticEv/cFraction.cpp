@@ -51,3 +51,11 @@ Fraction* Fraction::mult (Fraction* f2){
 void Fraction::printFrac(void){
   std::cout << num << '/' << den << std::endl;
 }
+
+int Fraction::getNum(){
+  return num;
+}
+
+int Fraction::getDen(){
+  return den;
+}
