@@ -2,6 +2,7 @@
 #include "cBoard.h"
 #include "cDice.h"
 #include "cPlayer.h"
+#include <iostream>
 
 class MyGame{
     Dice & dice;

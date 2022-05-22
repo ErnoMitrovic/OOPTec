@@ -1,8 +1,12 @@
+#include <random>
+#include <ctime>
+
 class Dice
 {
 private:
-    /* data */
+    int value;
 public:
-    Dice(/* args */);
+    Dice();
     ~Dice();
+    int turnDice();
 };
