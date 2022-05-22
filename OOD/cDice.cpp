@@ -8,7 +8,7 @@ Dice::~Dice(){
     delete &value;
 }
 
-int Dice::turnDice(){
+int Dice::roll(){
     value = std::rand() % 6 + 1;
     return value;
 }

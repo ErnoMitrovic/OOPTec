@@ -8,5 +8,5 @@ private:
 public:
     Dice();
     ~Dice();
-    int turnDice();
+    int roll();
 };

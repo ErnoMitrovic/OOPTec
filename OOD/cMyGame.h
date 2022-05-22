@@ -5,7 +5,7 @@
 #include <iostream>
 
 class MyGame{
-    Dice & dice;
-    Player & player1, & player2;
-    Board & board;
+    Dice * dice;
+    Player * player1, * player2;
+    Board * board;
 };
