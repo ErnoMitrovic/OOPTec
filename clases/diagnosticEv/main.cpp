@@ -1,12 +1,21 @@
 #include "cMatFrac.h"
 
+void debug(){
+  MatFrac * m1 = new MatFrac(4), *m2 = new MatFrac(4);
+  m1 -> printFracs();
+  std::cout << '\n';
+  m2 -> printFracs();
+  m1 -> sumMats(m2, "./debug.txt");
+}
+
 int main(){
-  // MatFrac * m1 = new MatFrac("./test.txt");
-  // m1 -> printFracs();
-  std::ifstream s;
-  s.open("test.txt");
-  if(!s){
-    std::cerr << "File couldn't be opened\n";
-    exit(1);
-  }
+  /* MatFrac * m1 = new MatFrac("./mat1.txt"),
+  * m2 = new MatFrac("./mat2.txt");
+  m1 -> printFracs();
+  std::cout << " + \n";
+  m2->printFracs();
+  std::cout << " = \n";
+  std::cout << "--- See file generated ---\n";
+  m1->sumMats(m2, "./addition.txt"); */
+  debug();
 }

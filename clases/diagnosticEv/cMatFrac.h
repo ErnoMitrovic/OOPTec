@@ -2,7 +2,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
-#include <cstring>
+#include <string>
 
 class MatFrac{
   Fraction ** matriz;
@@ -20,7 +20,7 @@ class MatFrac{
     */
     MatFrac(std::string filepath);
     // Matrices MUST have same size
-    void sumMats (MatFrac &, std::string);
+    void sumMats (MatFrac *, const std::string);
     void printFracs(void);
 
     int getSize(void);

@@ -39,7 +39,7 @@ MatFrac::MatFrac(int size){
   matriz = new Fraction*[size];
   for(int i = 0; i < size; i++){
     matriz[i] = new Fraction[size];
-    for(int j = 0; j < 3; j++){
+    for(int j = 0; j < size; j++){
       int num, den;
       num= std::rand() % 20 +1;
       den = std::rand() % 20 + 1;
@@ -70,16 +70,25 @@ MatFrac::MatFrac(std::string filepath){
   str2Frac(rawFracs, nrows);
 }
 
-void MatFrac::sumMats (MatFrac & m2, std::string filename){
-  std::ofstream mat("./addition.txt");
-  for(int i = 0; i < size; i++){
-    for(int j = 0; j < size; j++){
-      Fraction * sum = new Fraction();
-      sum = matriz[i][j].add(&m2.matriz[i][j]);
-      mat << sum -> getNum() << '/' << sum -> getDen() << ' ';
+int MatFrac::getSize(){
+  return size;
+}
+
+void MatFrac::sumMats (MatFrac * m2, const std::string filename){
+  if(size == m2 -> getSize()){
+    std::ofstream mat(filename);
+    for(int i = 0; i < size; i++){
+      for(int j = 0; j < size; j++){
+        Fraction * sum = new Fraction();
+        sum = matriz[i][j].add(& m2 -> matriz[i][j]);
+        mat << sum -> getNum() << '/' << sum -> getDen() << ' ';
+      }
+      mat << '\n';
     }
-    mat << '\n';
+    return;
   }
+  std::cerr << "Matrices have differente sizes.\n";
+  exit(0);
 }
 
 void MatFrac::printFracs(){
@@ -90,8 +99,4 @@ void MatFrac::printFracs(){
     }
     std::cout << '\n';
   }
-}
-
-int MatFrac::getSize(){
-  return size;
 }
