@@ -1,47 +1,63 @@
 #include "cMatFrac.h"
 
+MatFrac::~MatFrac(){
+  delete [] * matriz;
+}
+
 std::string * MatFrac::split(std::string str, char delimiter){
-  std::string * strSplit;
-  int i;
-  size = i = 0;
-  for(auto ch : str){
+  std::string * strSplit, temp = "";
+  int val, index;
+  val = index = 0;
+  for(char ch : str){
     if (ch == delimiter)
-      size++;
+      val++;
   }
-  strSplit = new std::string [size];
-  for(auto ch : str){
-    std::string temp = "";
-    if (ch != delimiter)
-      temp += ch;
-    else {
-      strSplit[i] = temp;
-      i++;
+  strSplit = new std::string [val + 1];
+  for(int i = 0; i < str.size(); i++){
+    if (str[i] != delimiter)
+      temp += str[i];
+    else 
+    {
+      strSplit[index] = temp;
+      index++;
+      temp = "";
     }
   } 
+  for(int i = 0; i < val + 1; i++){
+    std::cout << strSplit[i] << ' ';
+  }
+  std::cout << "Finished\n";
   return strSplit;
 }
 
 void MatFrac::str2Frac(std::string * fracs, int size){
+  std::stringstream ss;
+  int num, den;
   matriz = new Fraction*[size];
   for(int i = 0; i < size; i++){
     matriz[i] = new Fraction[size];
     std::string * rowFracs = split(fracs[i], ' ');
     for(int j = 0; j < size; j++){
-      std::string * temp = split(rowFracs[j], '/');
-      matriz[i][j] = Fraction(std::stoi(temp[0]), std::stoi(temp[1]));
+      std::string * temp = split(rowFracs[j], ' ');
+      /* ss << temp[0];
+      ss >> num;
+      ss << temp[1];
+      ss >> den;
+      matriz[i][j] = Fraction(num, den);
+      matriz[i][j].printFrac();
+      std::cout << '\n'; */
     }
   }
 }
 
 MatFrac::MatFrac(int size){
   this -> size = size;
-  srand(time(NULL));
   matriz = new Fraction*[size];
   for(int i = 0; i < size; i++){
     matriz[i] = new Fraction[size];
     for(int j = 0; j < size; j++){
       int num, den;
-      num= std::rand() % 20 +1;
+      num= std::rand() % 20;
       den = std::rand() % 20 + 1;
       matriz[i][j] = Fraction(num, den);
     }
@@ -58,16 +74,16 @@ MatFrac::MatFrac(std::string filepath){
     std::cerr << "File couldn't be opened\n";    
     exit(1);
   }
-  int nrows = 0;
+  size = 0;
   while (std::getline(matDoc, rawFrac))
-    nrows++;
-  rawFracs = new std::string[nrows];
-  for(int i = 0; i < nrows; i++){
+    size++;
+  rawFracs = new std::string[size];
+  for(int i = 0; i < size; i++){
     std::getline(matDoc, rawFrac);
     rawFracs[i] = rawFrac;
   }
   matDoc.close();
-  str2Frac(rawFracs, nrows);
+  str2Frac(rawFracs, size);
 }
 
 int MatFrac::getSize(){

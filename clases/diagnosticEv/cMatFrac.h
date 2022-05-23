@@ -2,7 +2,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
-#include <string>
+#include <sstream>
 
 class MatFrac{
   Fraction ** matriz;
@@ -12,6 +12,7 @@ class MatFrac{
   public :
     MatFrac(void);
     MatFrac(int);
+    ~MatFrac();
     /*
     File format:
     x/x x/x x/x
