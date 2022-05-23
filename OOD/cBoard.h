@@ -1,8 +1,13 @@
+#include <random>
+#include <ctime>
+#include <iostream>
 class Board
 {
 private:
-    /* data */
+    char ** matrixBoard;
 public:
-    Board(/* args */);
-    ~Board();
+    Board(void);
+    ~Board(void);
+    void displayBoard(void);
+    char getBox(int *);
 };
