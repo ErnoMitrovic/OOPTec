@@ -7,20 +7,21 @@ void Tile::setType(char type){
   this -> type = type;
 }
 
-/**
-* Default constructor
-*/
-Tile::Tile(){
-  setType('N');
-  num = 0;
+Tile::Tile(char t, int n) : num(n){
+  setType(t);
 }
 
 /**
 * Initializes a Tile with its number
 */
-Tile::Tile(int n): num(n){
-  setType('N');
-}
+Tile::Tile(int n): Tile('N', n){}
+
+
+/**
+* Default constructor
+*/
+Tile::Tile() : Tile('N', 0){}
+
 
 /**
 * Default destructor

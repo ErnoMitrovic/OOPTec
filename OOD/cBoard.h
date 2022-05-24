@@ -10,5 +10,5 @@ public:
     Board(void);
     ~Board(void);
     void displayBoard(void);
-    Tile getBox(int);
+    Tile getTile(int);
 };

@@ -8,7 +8,7 @@ Board::Board(){
   }
   for(unsigned short i = 0; i < 6; i++){
     *pos = rand() % 30;
-    *(matrixBoard + *pos) = i < 3 ? Tile(*pos, 'S') : Tile(*pos, 'L');
+    *(matrixBoard + *pos) = i < 3 ? Tile('S', *pos) : Tile('L', *pos);
   }
   delete pos;
 }
@@ -25,6 +25,6 @@ void Board::displayBoard(){
   }
 }
 
-Tile Board::getBox(int currentPosition){
+Tile Board::getTile(int currentPosition){
     return matrixBoard[currentPosition];
 }
