@@ -4,48 +4,49 @@ MatFrac::~MatFrac(){
   delete [] * matriz;
 }
 
-std::string * MatFrac::split(std::string str, char delimiter){
-  std::string * strSplit, temp = "";
-  int val, index;
-  val = index = 0;
-  for(char ch : str){
-    if (ch == delimiter)
-      val++;
+std::string * MatFrac::split(std::string str, std::string delimiter = " "){
+  std::string * splitStr;
+  int start = 0, end = str.find(delimiter), count = 0;
+  while(end != -1){
+    start = end + delimiter.size();
+    end = str.find(delimiter, start);
+    count++;
   }
-  strSplit = new std::string [val + 1];
-  for(int i = 0; i < str.size(); i++){
-    if (str[i] != delimiter)
-      temp += str[i];
-    else 
-    {
-      strSplit[index] = temp;
-      index++;
-      temp = "";
-    }
-  } 
-  for(int i = 0; i < val + 1; i++){
-    std::cout << strSplit[i] << ' ';
+  count++;
+
+  splitStr = new std::string[count];
+  start = 0; end = str.find(delimiter); count = 0;
+  while(end != -1){
+    splitStr[count] = str.substr(start, end - start);
+    start = end + delimiter.size();
+    end = str.find(delimiter, start);
+    count++;
   }
-  std::cout << "Finished\n";
-  return strSplit;
+  splitStr[count] = str.substr(start, end - start);
+  return splitStr;
 }
 
-void MatFrac::str2Frac(std::string * fracs, int size){
+void MatFrac::debug(){
+  
+}
+
+void MatFrac::str2Frac(std::string * fracs){
   std::stringstream ss;
+  std::string * rowFracs, * temp;
   int num, den;
   matriz = new Fraction*[size];
   for(int i = 0; i < size; i++){
     matriz[i] = new Fraction[size];
-    std::string * rowFracs = split(fracs[i], ' ');
+    rowFracs = split(fracs[i]);
     for(int j = 0; j < size; j++){
-      std::string * temp = split(rowFracs[j], ' ');
-      /* ss << temp[0];
+      temp = split(rowFracs[j], "/");
+      ss << temp[0];
       ss >> num;
+      ss.clear();
       ss << temp[1];
       ss >> den;
+      ss.clear();
       matriz[i][j] = Fraction(num, den);
-      matriz[i][j].printFrac();
-      std::cout << '\n'; */
     }
   }
 }
@@ -75,15 +76,17 @@ MatFrac::MatFrac(std::string filepath){
     exit(1);
   }
   size = 0;
-  while (std::getline(matDoc, rawFrac))
+  while (std::getline(matDoc, rawFrac, '\n'))
     size++;
   rawFracs = new std::string[size];
+  matDoc.clear();
+  matDoc.seekg(0);
   for(int i = 0; i < size; i++){
     std::getline(matDoc, rawFrac);
     rawFracs[i] = rawFrac;
   }
   matDoc.close();
-  str2Frac(rawFracs, size);
+  str2Frac(rawFracs);
 }
 
 int MatFrac::getSize(){

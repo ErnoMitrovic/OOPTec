@@ -7,8 +7,8 @@
 class MatFrac{
   Fraction ** matriz;
   int size;
-  void str2Frac(std::string *, int);
-  std::string * split(std::string, char);
+  void str2Frac(std::string *);
+  std::string * split(std::string, std::string delimiter);
   public :
     MatFrac(void);
     MatFrac(int);
@@ -25,4 +25,5 @@ class MatFrac{
     void printFracs(void);
 
     int getSize(void);
+    void debug();
 };
