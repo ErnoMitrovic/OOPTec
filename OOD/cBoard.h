@@ -1,13 +1,14 @@
 #include <random>
 #include <ctime>
 #include <iostream>
+#include "cTile.h"
 class Board
 {
 private:
-    char ** matrixBoard;
+    Tile * matrixBoard;
 public:
     Board(void);
     ~Board(void);
     void displayBoard(void);
-    char getBox(int *);
+    Tile getTile(int);
 };
