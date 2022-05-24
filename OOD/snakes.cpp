@@ -3,6 +3,8 @@
 int main(){
     /* Dice * dice = new Dice();
     std::cout << "Value: " << dice -> roll(); */
-    Tile * t = new Tile('S', 2);
-    std::cout << (t -> toString());
+    Tile t;
+    std::cout << t.toString();
+    Board board;
+    //board.displayBoard();
 }

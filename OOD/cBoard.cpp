@@ -4,8 +4,10 @@ Board::Board(){
   matrixBoard = new Tile[30];
   int * pos;
   for (unsigned short i = 0; i < 30; i++){
-    *(matrixBoard + i) = Tile(i);
+    matrixBoard[i] = Tile(i);
+    std::cout << "Im here\n";
   }
+  
   for(unsigned short i = 0; i < 6; i++){
     *pos = rand() % 30;
     *(matrixBoard + *pos) = i < 3 ? Tile('S', *pos) : Tile('L', *pos);
