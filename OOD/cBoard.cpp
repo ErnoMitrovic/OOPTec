@@ -1,5 +1,13 @@
 #include "cBoard.h"
 
+/**
+ * @brief Randomize numbers without repetition
+ * 
+ * @param N number of values
+ * @param MAX maximum value
+ * @param MIN minimum value, default is 0
+ * @return int* pointer to the different values
+ */
 int * Board::randomize(const int N, const int MAX, const int MIN = 0){
   if(MAX < N) return NULL; // MAX must be greater or equal than N
   int * nums = new int[N];
@@ -21,6 +29,10 @@ int * Board::randomize(const int N, const int MAX, const int MIN = 0){
   return nums;
 }
 
+/**
+ * @brief Construct a new Board:: Board object
+ * 
+ */
 Board::Board(){
   matrixBoard = new Tile[30];
   int * nums = new int[6];
@@ -34,10 +46,18 @@ Board::Board(){
   }
 }
 
+/**
+ * @brief Destroy the Board:: Board object
+ * 
+ */
 Board::~Board(){
     delete [] matrixBoard;
 }
 
+/**
+ * @brief Displays the board, is like a to string method
+ * 
+ */
 void Board::displayBoard(){
   for(unsigned short i = 0; i < 30; i++){ 
     std::cout << matrixBoard[i].getType() << ' ';
@@ -46,6 +66,12 @@ void Board::displayBoard(){
   }
 }
 
+/**
+ * @brief Gets the current tile
+ * 
+ * @param currentPosition current position of the player (must be in index format)
+ * @return Tile& the tile reference according to the position
+ */
 Tile & Board::getTile(int currentPosition){
     return matrixBoard[currentPosition];
 }
