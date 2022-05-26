@@ -1,7 +1,6 @@
 #include "cMyGame.h"
 
 int MyGame::turn(Board & b, int &cP, int & d){
-    std::cout << "CurrentPos: " << cP << "\nDice: " << d << '\n';
     const int MIN = 1, MAX = 30;
     if(cP + d >= MAX)
         return MAX;
@@ -23,15 +22,15 @@ int MyGame::turn(Board & b, int &cP, int & d){
 
 void MyGame::turnResults(int & cT, int & cP, Player & p, int & d){
     std::cout << cT << ' ' << p.getNum() << ' ' << cP << ' '
-    << d << ' ' << board->getTile(cP + d - 1).getType() 
+    << d << ' ' << board->getTile(cP + d < 30? cP + d - 1 : 29).getType() 
     << ' ' << p.getCurrentTile()->getNum() << '\n';
 }
 
 MyGame::MyGame() : reward(3), penalty(-3), maxTurns(25){
     dice = new Dice();
     board = new Board();
-    player1 = new Player("Amy", 1);
-    player2 = new Player("Aylin", 2);
+    player1 = new Player("Jorge", 1);
+    player2 = new Player("Sergio", 2);
 }
 
 MyGame & MyGame::instanceGame()
@@ -57,6 +56,7 @@ void MyGame::start(){
             if(currentTurn % 2 == 1){
                 currentPos = player1->getCurrentTile()->getNum();
                 newTile = turn(*board, currentPos,diceValue);
+                std::cout << "Turn player 1: " << newTile << '\n';
                 player1 -> move(board->getTile(newTile - 1));
                 turnResults(currentTurn, currentPos, *player1, diceValue);
                 if(player1 -> getCurrentTile()->getNum() == 30){
@@ -76,7 +76,7 @@ void MyGame::start(){
 
             currentTurn++;
         }
-    } while(election != 'E' && !win && currentPos != maxTurns);
+    } while(election != 'E' && !win && currentPos <= maxTurns);
     if(election == 'E')
         std::cout << "Thanks for playing!!!\n";
 }

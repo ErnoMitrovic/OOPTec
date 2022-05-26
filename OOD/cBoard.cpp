@@ -1,13 +1,13 @@
 #include "cBoard.h"
 
-int * Board::randomize(const int N, const int MIN = 0, const int MAX = 10){
+int * Board::randomize(const int N, const int MAX, const int MIN = 0){
   if(MAX < N) return NULL; // MAX must be greater or equal than N
   int * nums = new int[N];
   for(unsigned short i = 0; i < N; i++){
     bool used;
     int n;
     do{
-      n = (std::rand() % (MAX - MIN + 1)) + MIN;;
+      n = (std::rand() % (MAX - MIN + 1)) + MIN;
       used = true;
       for(unsigned short j = 0; j < i; j++){
         if(n == nums[j]){
@@ -28,9 +28,9 @@ Board::Board(){
   for (unsigned short i = 0; i < 30; i++){
     matrixBoard[i] = Tile(i + 1);
   }
-  nums = randomize(6, 1, 30);
+  nums = randomize(6, 29);
   for(unsigned short i = 0; i < 6; i++){
-    matrixBoard[nums[i]] = i < 3 ? Tile('S', nums[i]) : Tile('L', nums[i]);
+    matrixBoard[nums[i]] = i < 3 ? Tile('S', nums[i] + 1) : Tile('L', nums[i] + 1);
   }
 }
 
