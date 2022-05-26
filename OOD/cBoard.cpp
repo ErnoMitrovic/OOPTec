@@ -36,8 +36,8 @@ int * Board::randomize(const int N, const int MAX, const int MIN = 0){
 Board::Board(){
   matrixBoard = new Tile[30];
   int * nums = new int[6];
-
-  for (unsigned short i = 0; i < 30; i++){
+  for (int i = 0; i < 30; i++){
+    std::cout << "Im here\n";
     matrixBoard[i] = Tile(i + 1);
   }
   nums = randomize(6, 29);
@@ -55,15 +55,18 @@ Board::~Board(){
 }
 
 /**
- * @brief Displays the board, is like a to string method
+ * @brief Gives information of the board
  * 
+ * @return std::string string representation of the board
  */
-void Board::displayBoard(){
-  for(unsigned short i = 0; i < 30; i++){ 
-    std::cout << matrixBoard[i].getType() << ' ';
-    if((i + 1 )% 6   == 0)
-      std::cout << '\n';
+std::string Board::toString(){
+  std::string info = "";
+  for(int i = 0; i < 30; i++){ 
+    info += matrixBoard[i].getType() + " ";
+    if((i + 1)% 6   == 0)
+      info += "\n";
   }
+  return info;
 }
 
 /**

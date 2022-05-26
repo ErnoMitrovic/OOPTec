@@ -65,11 +65,11 @@ void MyGame::turnResults(int & cT, int & cP, Player & p, int & d){
 }
 
 /**
- * @brief Executes the code
+ * @brief Executes the code.
  * 
  */
 void MyGame::start(){
-    board -> displayBoard();
+    std::cout <<  board ->toString();
     char election;
     int diceValue = 0, currentTurn = 1, newTile = 0, currentPos = 0;
     bool win = false;

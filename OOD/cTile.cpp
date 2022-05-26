@@ -14,13 +14,19 @@ Tile::Tile(char t, int n) : num(n){
 /**
 * Initializes a Tile with its number
 */
-Tile::Tile(int n): Tile('N', n){}
+Tile::Tile(int n){
+  num = n;
+  setType('N');
+}
 
 
 /**
 * Default constructor
 */
-Tile::Tile() : Tile('N', 0){}
+Tile::Tile() {
+  num = 0;
+  setType('N');
+}
 
 
 /**

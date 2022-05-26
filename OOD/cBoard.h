@@ -11,6 +11,6 @@ private:
 public:
     Board(void);
     ~Board();
-    void displayBoard(void);
+    std::string toString(void);
     Tile & getTile(int);
 };
