@@ -1,5 +1,35 @@
 #include "cMyGame.h"
 
+/**
+ * @brief Construct a new My Game:: My Game object, is private to produce the singleton pattern
+ * 
+ */
+MyGame::MyGame() : reward(3), penalty(-3), maxTurns(25){
+    dice = new Dice();
+    board = new Board();
+    player1 = new Player("Jorge", 1);
+    player2 = new Player("Sergio", 2);
+}
+
+/**
+ * @brief Instantiates a unique MyGame object
+ * 
+ * @return MyGame& the game object
+ */
+MyGame & MyGame::instanceGame()
+{
+    static MyGame instance = MyGame();
+    return instance;
+}
+
+/**
+ * @brief Computes the information for the current turn
+ * 
+ * @param b board
+ * @param cP current position
+ * @param d dice value
+ * @return int the value of the new position 
+ */
 int MyGame::turn(Board & b, int &cP, int & d){
     const int MIN = 1, MAX = 30;
     if(cP + d >= MAX)
@@ -20,25 +50,24 @@ int MyGame::turn(Board & b, int &cP, int & d){
     }
 }
 
+/**
+ * @brief Gives the results of the current turn
+ * 
+ * @param cT Current turn
+ * @param cP Current position
+ * @param p player
+ * @param d dice value
+ */
 void MyGame::turnResults(int & cT, int & cP, Player & p, int & d){
     std::cout << cT << ' ' << p.getNum() << ' ' << cP << ' '
     << d << ' ' << board->getTile(cP + d < 30? cP + d - 1 : 29).getType() 
     << ' ' << p.getCurrentTile()->getNum() << '\n';
 }
 
-MyGame::MyGame() : reward(3), penalty(-3), maxTurns(25){
-    dice = new Dice();
-    board = new Board();
-    player1 = new Player("Jorge", 1);
-    player2 = new Player("Sergio", 2);
-}
-
-MyGame & MyGame::instanceGame()
-{
-    static MyGame instance = MyGame();
-    return instance;
-}
-
+/**
+ * @brief Executes the code
+ * 
+ */
 void MyGame::start(){
     board -> displayBoard();
     char election;
