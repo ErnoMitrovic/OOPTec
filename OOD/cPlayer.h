@@ -9,8 +9,9 @@ public:
     Player();
     Player(std::string);
     Player(std::string, int);
-    void setTile(Tile &);
+    void move(Tile &);
     ~Player();
     int getNum(void);
+    Tile * getCurrentTile(void);
 };
 

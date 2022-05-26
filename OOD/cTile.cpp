@@ -27,10 +27,7 @@ Tile::Tile() : Tile('N', 0){}
 * Default destructor
 */
 
-Tile::~Tile(){
-  delete &num;
-  delete &type;
-}
+Tile::~Tile(){}
 
 int Tile::getNum(){
   return num;
