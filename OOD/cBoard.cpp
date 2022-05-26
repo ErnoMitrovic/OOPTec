@@ -37,7 +37,6 @@ Board::Board(){
   matrixBoard = new Tile[30];
   int * nums = new int[6];
   for (int i = 0; i < 30; i++){
-    std::cout << "Im here\n";
     matrixBoard[i] = Tile(i + 1);
   }
   nums = randomize(6, 29);
