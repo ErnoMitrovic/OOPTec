@@ -27,16 +27,33 @@ Tile::Tile() : Tile('N', 0){}
 * Default destructor
 */
 
-Tile::~Tile(){}
+Tile::~Tile(){
+  delete &type, &num;
+}
 
+/**
+ * @brief Gets the number corresponding to the tile
+ * 
+ * @return int the number
+ */
 int Tile::getNum(){
   return num;
 }
 
+/**
+ * @brief Gets the type allocated in this tile
+ * 
+ * @return char 'S' for snake, 'L' for ladder and 'N' for normal
+ */
 char Tile::getType(){
   return type;
 }
 
+/**
+ * @brief String representation of the Tile object
+ * 
+ * @return std::string the string representation
+ */
 std::string Tile::toString(){
   std::string out = "";
   out += "Type: ";
