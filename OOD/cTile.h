@@ -10,6 +10,5 @@ class Tile{
     ~Tile();
     int getNum(void);
     char getType(void);
-    void setType(char);
     std::string toString(void);
 };

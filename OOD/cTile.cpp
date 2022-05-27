@@ -1,41 +1,23 @@
 #include "cTile.h"
 
-/**
-* Setter for type
-*/
-void Tile::setType(char type){
-  this -> type = type;
-}
-
-Tile::Tile(char t, int n) : num(n){
-  setType(t);
-}
-
+Tile::Tile(char t, int n) : num(n), type(t){}
 /**
 * Initializes a Tile with its number
 */
-Tile::Tile(int n){
-  num = n;
-  setType('N');
-}
+Tile::Tile(int n): Tile('N', n){}
 
 
 /**
 * Default constructor
 */
-Tile::Tile() {
-  num = 0;
-  setType('N');
-}
+Tile::Tile() : Tile(0) {}
 
 
 /**
 * Default destructor
 */
 
-Tile::~Tile(){
-  delete &type, &num;
-}
+Tile::~Tile(){}
 
 /**
  * @brief Gets the number corresponding to the tile

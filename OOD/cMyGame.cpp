@@ -18,7 +18,7 @@ MyGame::MyGame() : reward(3), penalty(-3), maxTurns(25){
  */
 MyGame & MyGame::instanceGame()
 {
-    static MyGame instance = MyGame();
+    static MyGame instance;
     return instance;
 }
 
@@ -69,8 +69,23 @@ void MyGame::turnResults(int & cT, int & cP, Player & p, int & d){
  * 
  */
 void MyGame::start(){
-    std::cout <<  board ->toString();
     char election;
+    do{
+        std::cout << "Display board (Y/N): ";
+        std::cin >> election;
+        election = std::toupper(election);
+        switch(election){
+            case 'Y':
+                std::cout <<  board ->toString();
+                break;
+            case 'N':
+                std::cout << '\n';
+                break;
+            default:
+                std::cout << "Invalid output...\n";
+                break;
+        }
+    } while(election != 'Y' && election != 'N');
     int diceValue = 0, currentTurn = 1, newTile = 0, currentPos = 0;
     bool win = false;
     std::cout << "- Press C to continue or E to end the game -\n- The display is in the format...\n";
@@ -79,13 +94,15 @@ void MyGame::start(){
     player2 -> move(board -> getTile(0));
     do{
         std::cin >> election;
+        election = std::toupper(election);
         if(election != 'C' && election != 'E') std::cout << "- Invalid input, try again -\n";
+        else if(election == 'E')
+            std::cout << "Thanks for playing!!!\n";
         else{
             diceValue = dice ->roll();
             if(currentTurn % 2 == 1){
                 currentPos = player1->getCurrentTile()->getNum();
                 newTile = turn(*board, currentPos,diceValue);
-                std::cout << "Turn player 1: " << newTile << '\n';
                 player1 -> move(board->getTile(newTile - 1));
                 turnResults(currentTurn, currentPos, *player1, diceValue);
                 if(player1 -> getCurrentTile()->getNum() == 30){
@@ -105,7 +122,5 @@ void MyGame::start(){
 
             currentTurn++;
         }
-    } while(election != 'E' && !win && currentPos <= maxTurns);
-    if(election == 'E')
-        std::cout << "Thanks for playing!!!\n";
+    } while(election != 'E' && !win && currentTurn <= maxTurns);
 }

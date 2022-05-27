@@ -61,9 +61,10 @@ Board::~Board(){
 std::string Board::toString(){
   std::string info = "";
   for(int i = 0; i < 30; i++){ 
-    info += matrixBoard[i].getType() + " ";
+    info += matrixBoard[i].getType();
+    info += ' ';
     if((i + 1)% 6   == 0)
-      info += "\n";
+      info += '\n';
   }
   return info;
 }

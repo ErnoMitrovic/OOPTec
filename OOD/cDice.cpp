@@ -9,9 +9,7 @@ Dice::Dice(){}
  * @brief Destroy the Dice object
  * Deletes the memory allocated in value
  */
-Dice::~Dice(){
-    delete &value;
-}
+Dice::~Dice(){}
 
 /**
  * @brief Rolls the dice in a range of values from 1 to 6

@@ -31,7 +31,7 @@ void Player::move(Tile & tile){
  * 
  */
 Player::~Player(){
-  delete currentTile, &name, &number;
+  delete currentTile;
 }
 
 /**
