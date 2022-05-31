@@ -1,2 +1,2 @@
 language = "cpp"
-run = "g++ ./clases/clase3/*.cpp -o main ; ./main"
+run = "g++ *.cpp -o main ; ./main"
