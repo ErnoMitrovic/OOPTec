@@ -96,7 +96,7 @@ void MyGame::start(){
         std::cin >> election;
         election = std::toupper(election);
         if(election != 'C' && election != 'E') std::cout << "- Invalid input, try again -\n";
-        else if(election == 'E')
+        else if(election == 'E' || currentTurn > maxTurns)
             std::cout << "Thanks for playing!!!\n";
         else{
             diceValue = dice ->roll();
