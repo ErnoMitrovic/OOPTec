@@ -1,11 +1,15 @@
 #include "cEnvelope.hpp"
 
 Envelope::Envelope(std::string * n, std::string * a, std::string * c, std::string * s, std::string * z, float stdC,
-float l, float w, float ch) : Shipping(n, a, c, s, z, stdC), length(l), width(w) {
+float l, float w, float ch) : Shipping(n, a, c, s, z, stdC) {
+    length = l > 0 ? l : -l;
+    width = w > 0 ? w : -w;
     charge = ((l > 30 && w > 25) || (w > 30 && l > 25)) ? ch : 0;
 }
 
 Envelope::Envelope(float l, float w, float ch) : Shipping(), length(l), width(w) {
+    length = l > 0 ? l : -l;
+    width = w > 0 ? w : -w;
     charge = ((l > 30 && w > 25) || (w > 30 && l > 25)) ? ch : 0;
 }
 

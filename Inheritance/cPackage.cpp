@@ -3,14 +3,40 @@
 Package::Package(std::string * n, std::string * a, std::string * c, std::string * s, std::string * z, float stdC,
 float l, float w, float d, float wei, float cp) 
 : Shipping(n, a, c, s, z, stdC), length(l), width(w), depth(d) {
-    weight = wei >= 0 ? wei : - wei;
-    cpw = cp >= 0 ? cp : - cp;
+    if(wei == 0){
+        weight = 1;
+    } else if (wei < 0){
+        weight = - wei;
+    } else {
+        weight = wei;
+    }
+
+    if(cp == 0){
+        cpw = 1;
+    } else if (cp < 0){
+        cpw = - cp;
+    } else {
+        cpw = cp;
+    }
 }
 
 Package::Package(float l, float w, float d, float wei, float cp) 
 : Shipping(), length(l), width(w), depth(d), cpw(cp) {
-    weight = wei >= 0 ? wei : - wei;
-    cpw = cp >= 0 ? cp : - cp;
+    if(wei == 0){
+        weight = 1;
+    } else if (wei < 0){
+        weight = - wei;
+    } else {
+        weight = wei;
+    }
+
+    if(cp == 0){
+        cpw = 1;
+    } else if (cp < 0){
+        cpw = - cp;
+    } else {
+        cpw = cp;
+    }
 }
 
 Package::Package() : Package(5, 5, 5, 5, 5) {}
