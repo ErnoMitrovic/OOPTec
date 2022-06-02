@@ -7,7 +7,7 @@ namespace testCases{
     using namespace std;
 
     /**
-     * @brief Default everything, in toString() should only print pointer references
+     * @brief Default everything, in toString() should only print envelope and package data
      * 
      */
     void first(){
@@ -21,7 +21,7 @@ namespace testCases{
     }
 
     /**
-     * @brief Second constructor, it should also print pointer values
+     * @brief Second constructor, no info is set for Shipping
      * 
      */
     void second(){
@@ -50,7 +50,6 @@ namespace testCases{
         float stdCost = 45;
         Package * p = new Package(name, address, city, state, zip, stdCost, 30.f, 20.f, 50.f, 25.f, 6.f);
         Envelope * e = new Envelope(name, address, city, state, zip, stdCost, 21.f, 31.f, 30.f);
-        Envelope * e = new Envelope();
         cout << e->toString();
         cout << p->toString();
         cout << "Cost envelope: " << e->calculateCost() << endl;
@@ -75,7 +74,6 @@ namespace testCases{
         float stdCost = 45;
         Package * p = new Package(name, address, city, state, zip, stdCost, 30.f, 20.f, 50.f, -45.f, 0.f);
         Envelope * e = new Envelope(name, address, city, state, zip, stdCost, -28.f, 40.f, 30.f);
-        Envelope * e = new Envelope();
         cout << e->toString();
         cout << p->toString();
         cout << "Cost envelope: " << e->calculateCost() << endl;
@@ -109,7 +107,7 @@ void menu(){
                 std::cout << "Invalid input\n";
                 break;
         }
-    } while(sel < 1 && sel > 4);
+    } while(sel < 1 || sel > 4);
 }
 
 int main(){
