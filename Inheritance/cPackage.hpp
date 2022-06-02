@@ -10,6 +10,6 @@ public:
     Package(std::string *, std::string *, std::string *, std::string *,
     std::string *, float, float, float, float, float, float);
     ~Package();
-    std::string toString() override;
-    float calculateCost() override;
+    std::string toString(void) override;
+    float calculateCost(void) override;
 };

@@ -13,7 +13,7 @@ Package::Package(float l, float w, float d, float wei, float cp)
     cpw = cp >= 0 ? cp : - cp;
 }
 
-Package::Package() : Package(0, 0, 0, 0, 0) {}
+Package::Package() : Package(5, 5, 5, 5, 5) {}
 
 Package::~Package(){}
 
