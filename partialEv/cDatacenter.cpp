@@ -22,7 +22,7 @@ public:
  */
 Datacenter::Datacenter(int nLaptop, int nDesktop){
     for(unsigned short i = 0; i < nLaptop + nDesktop; i++){
-        if(i + 1 < nLaptop) 
+        if(i < nLaptop) 
             computers.push_back(new Laptop());
         else
             computers.push_back(new Desktop());
@@ -59,6 +59,5 @@ std::string Datacenter::toString(){
     for(std::vector<PC*>::iterator it = computers.begin(); it != computers.end(); it++){
         info += (*it)->toString();
     }
-    info += "\nTOTAL RAM: " + std::to_string(computeTotalRam());
     return info;
 }
