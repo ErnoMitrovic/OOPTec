@@ -3,12 +3,12 @@
 class Snake : public Tile
 {
 private:
-    int reward;
+    int penalty;
 public:
     Snake();
     Snake(int);
-    Snake(int _num, int _reward);
+    Snake(int _num, int _penalty);
     ~Snake();
-    void setReward(int);
+    void setPenalty(int);
     std::string toString(void) override;
 };
