@@ -8,6 +8,6 @@ public:
     Laptop();
     Laptop(int, std::string);
     ~Laptop();
-    std::string toString() override;
-    int getRam() override;
+    std::string toString(void) override;
+    int getRam(void) override;
 };

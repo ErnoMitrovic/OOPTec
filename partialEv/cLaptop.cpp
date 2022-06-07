@@ -1,16 +1,5 @@
 #include "cLaptop.hpp"
 
-/*
-private:
-    std::string mobileGPU;
-public:
-    Laptop();
-    Laptop(int, std::string);
-    ~Laptop();
-    std::string toString() override;
-    int getRam() override;
-*/
-
 /**
  * @brief Construct a new Laptop object
  * 
@@ -41,7 +30,7 @@ int Laptop::getRam(){
 }
 
 /**
- * @brief The information of this Laptop in the form of a string
+ * @brief The information of the Laptop in the form of a string
  * 
  * @return std::string information
  */
