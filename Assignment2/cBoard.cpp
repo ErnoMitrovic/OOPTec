@@ -36,7 +36,7 @@ int * Board::randomize(const int N, const int MAX, const int MIN = 0){
  * @param nSnakes number of Snakes
  * @param nLadder number of Ladder
  */
-Board::Board(const int & nTiles, const int & nSnakes, const int & nLadder){
+Board::Board(const int & nTiles, const int & nSnakes, const int & nLadder, const int & penalty, const int & reward){
   int * nums = new int[nSnakes + nLadder];
   for (unsigned short i = 0; i < nTiles; i++){
     matrixBoard.push_back(new Tile(i+1));
@@ -54,7 +54,7 @@ Board::Board(const int & nTiles, const int & nSnakes, const int & nLadder){
  * @brief Construct a new Board:: Board object
  * 
  */
-Board::Board() : Board(30, 3, 3){}
+Board::Board() : Board(30, 3, 3, -3, 3){}
 
 /**
  * @brief Destroy the Board:: Board object

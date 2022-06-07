@@ -12,7 +12,7 @@ private:
     int * randomize(const int N, const int MIN, const int MAX);
 public:
     Board(void);
-    Board(const int & nTiles, const int & nSnakes, const int & nLadder);
+    Board(const int & nTiles, const int & nSnakes, const int & nLadder, const int & penalty, const int & reward);
     ~Board();
     std::string toString(void);
     Tile & getTile(int);
