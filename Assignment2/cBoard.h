@@ -2,14 +2,17 @@
 #include <ctime>
 #include <iostream>
 #include <algorithm>
-#include "cTile.h"
+#include "cLadder.h"
+#include "cSnake.h"
+#include <vector>
 class Board
 {
 private:
-    Tile * matrixBoard;
+    std::vector<Tile*> matrixBoard;
     int * randomize(const int N, const int MIN, const int MAX);
 public:
     Board(void);
+    Board(const int & nTiles, const int & nSnakes, const int & nLadder);
     ~Board();
     std::string toString(void);
     Tile & getTile(int);

@@ -30,28 +30,37 @@ int * Board::randomize(const int N, const int MAX, const int MIN = 0){
 }
 
 /**
+ * @brief Construct a new Board object
+ * 
+ * @param nTiles number of tiles
+ * @param nSnakes number of Snakes
+ * @param nLadder number of Ladder
+ */
+Board::Board(const int & nTiles, const int & nSnakes, const int & nLadder){
+  int * nums = new int[nSnakes + nLadder];
+  for (unsigned short i = 0; i < nTiles; i++){
+    matrixBoard.push_back(new Tile(i+1));
+  }
+  nums = randomize(nSnakes + nLadder, nTiles-1);
+  for(unsigned short i = 0; i < nSnakes + nLadder; i++){
+    if (i < nSnakes)
+      matrixBoard[nums[i]] = new Snake(nums[i] + 1);
+    else 
+      matrixBoard[nums[i]] = new Ladder(nums[i] + 1);
+  }
+}
+
+/**
  * @brief Construct a new Board:: Board object
  * 
  */
-Board::Board(){
-  matrixBoard = new Tile[30];
-  int * nums = new int[6];
-  for (int i = 0; i < 30; i++){
-    matrixBoard[i] = Tile(i + 1);
-  }
-  nums = randomize(6, 29);
-  for(unsigned short i = 0; i < 6; i++){
-    matrixBoard[nums[i]] = i < 3 ? Tile('S', nums[i] + 1) : Tile('L', nums[i] + 1);
-  }
-}
+Board::Board() : Board(30, 3, 3){}
 
 /**
  * @brief Destroy the Board:: Board object
  * 
  */
-Board::~Board(){
-    delete [] matrixBoard;
-}
+Board::~Board(){}
 
 /**
  * @brief Gives information of the board
@@ -61,7 +70,7 @@ Board::~Board(){
 std::string Board::toString(){
   std::string info = "";
   for(int i = 0; i < 30; i++){ 
-    info += matrixBoard[i].getType();
+    info += matrixBoard[i]->getType();
     info += ' ';
     if((i + 1)% 6   == 0)
       info += '\n';
@@ -76,5 +85,5 @@ std::string Board::toString(){
  * @return Tile& the tile reference according to the position
  */
 Tile & Board::getTile(int currentPosition){
-    return matrixBoard[currentPosition];
+    return *matrixBoard[currentPosition];
 }
