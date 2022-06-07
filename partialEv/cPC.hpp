@@ -7,7 +7,7 @@ class PC{
         PC();
         PC(int);
         ~PC();
-        virtual std::string toString();
-        virtual int getRam(void);
+        virtual std::string toString() = 0;
+        virtual int getRam(void) = 0;
         void setRam(int);
 };
