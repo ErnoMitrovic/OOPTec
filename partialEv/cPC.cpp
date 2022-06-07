@@ -1,16 +1,7 @@
 #include "cPC.hpp"
 
-/*
-        int ram;
-        PC();
-        PC(int);
-        std::string toString();
-        int getRam(void);
-        void setRam(int);
-*/
-
 /**
- * @brief Construct a new PC::PC object
+ * @brief Construct a new PC object
  * 
  * @param _ram the ram that this PC will allocate
  */
@@ -22,6 +13,17 @@ PC::PC(int _ram) : ram(_ram){}
  */
 PC::PC() : PC(0){}
 
+/**
+ * @brief Destroy the PC object
+ * 
+ */
+PC::~PC() {}
+
+/**
+ * @brief Sets the ram of the PC
+ * 
+ * @param _ram 
+ */
 void PC::setRam(int _ram){
     ram = _ram;
 }

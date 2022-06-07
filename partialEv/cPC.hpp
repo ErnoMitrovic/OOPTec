@@ -5,6 +5,7 @@ class PC{
         int ram;
         PC();
         PC(int);
+        ~PC();
         virtual std::string toString();
         virtual int getRam(void);
         void setRam(int);
