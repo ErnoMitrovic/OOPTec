@@ -10,4 +10,5 @@ class PC{
         virtual std::string toString() = 0;
         virtual int getRam(void) = 0;
         void setRam(int);
+        int operator + (const PC&);
 };

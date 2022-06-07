@@ -27,3 +27,13 @@ PC::~PC() {}
 void PC::setRam(int _ram){
     ram = _ram;
 }
+
+/**
+ * @brief Adds the ram of two PC
+ * 
+ * @param aPC the other PC
+ * @return int the addition of both ram
+ */
+int PC::operator+ (const PC & aPC){
+    return ram + aPC.ram;
+}

@@ -47,11 +47,11 @@ Datacenter::~Datacenter() {}
  * @return int total ram of the Datacenter
  */
 int Datacenter::computeTotalRam(){
-    int total = 0;
+    Laptop dummie(0, "DEF");
     for(std::vector<PC*>::iterator it = computers.begin(); it != computers.end(); it++){
-        total += (*it)->getRam();
+        dummie.setRam(dummie + *(*it));
     }
-    return total;
+    return dummie.getRam();
 }
 
 std::string Datacenter::toString(){
