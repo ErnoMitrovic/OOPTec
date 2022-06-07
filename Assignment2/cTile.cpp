@@ -1,11 +1,9 @@
 #include "cTile.h"
 
-Tile::Tile(char t, int n) : num(n), type(t){}
 /**
 * Initializes a Tile with its number
 */
-Tile::Tile(int n): Tile('N', n){}
-
+Tile::Tile(int n): type('N'), num(n){}
 
 /**
 * Default constructor
@@ -46,6 +44,15 @@ std::string Tile::toString(){
   std::string out = "";
   out += "Type: ";
   out += type;
-  out += "\nNum: " + std::to_string(num) + '\n';
+  out += "\nNum: " + std::to_string(num) + "\n";
   return out;
+}
+
+/**
+ * @brief Setter of type
+ * 
+ * @param t type of tile
+ */
+void Tile::setType(char t){
+  type = t;
 }

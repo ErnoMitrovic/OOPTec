@@ -6,9 +6,9 @@ class Tile{
   public:
     Tile();
     Tile(int);
-    Tile(char, int);
     ~Tile();
     int getNum(void);
     char getType(void);
-    std::string toString(void);
+    void setType(char);
+    virtual std::string toString(void);
 };
