@@ -31,10 +31,20 @@ Laptop::Laptop() : Laptop(16, "GTX2080M") {}
  */
 Laptop::~Laptop() {}
 
+/**
+ * @brief Getter for ram
+ * 
+ * @return int the ram allocated for this Laptop
+ */
 int Laptop::getRam(){
     return ram;
 }
 
+/**
+ * @brief The information of this Laptop in the form of a string
+ * 
+ * @return std::string information
+ */
 std::string Laptop::toString(){
     std::string info = "";
     info += "I'm a Laptop!\t\tRAM: " + std::to_string(getRam())
