@@ -26,6 +26,10 @@ std::string Video::getName(){
   return name;
 }
 
+std::string Video::getGenre(){
+  return genre;
+}
+
 float Video::getRating(){
   return rating;
 }
