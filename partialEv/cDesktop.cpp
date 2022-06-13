@@ -1,16 +1,5 @@
 #include "cDesktop.hpp"
 
-/*
-private:
-        std::string GPU;
-    public:
-        Desktop();
-        Desktop(int, std::string);
-        ~Desktop();
-        std::string toString(void) override;
-        int getRam(void) override;
-*/
-
 /**
  * @brief Construct a new Desktop object
  * 
