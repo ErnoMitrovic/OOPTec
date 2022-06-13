@@ -17,7 +17,8 @@ class Video{
     virtual std::string toString(void) = 0;
     std::string getName(void);
     virtual float getRating(void);
+    void setRating(float);
     void setRating(float rating, int rators);
+    int operator + (const Video &);
 };
-
 #endif
