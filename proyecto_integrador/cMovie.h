@@ -2,7 +2,7 @@
 
 #ifndef __MOVIE
 #define __MOVIE
-#include "cVideo"
+#include "cVideo.h"
 
 class Movie : public Video{
   public:
@@ -10,7 +10,7 @@ class Movie : public Video{
     Movie(int, int, int, std::string, std::string, float);
     ~Movie();
     std::string toString(void) override;
-    float getRating(void) override;
+    float getRating(void);
 };
 
 #endif

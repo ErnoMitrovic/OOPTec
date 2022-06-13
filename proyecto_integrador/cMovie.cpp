@@ -4,7 +4,7 @@ Movie::Movie(int _id, int _length, int _rators, std::string _name, std::string _
 
 Movie::Movie() : Video() {}
 
-Movie::~Movie() : ~Video(){}
+Movie::~Movie() {}
 
 float Movie::getRating(){
   return Video::getRating();
