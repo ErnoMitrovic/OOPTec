@@ -9,11 +9,10 @@ class Video{
     int id, length, rators;
     std::string name, genre;
     float rating;
-  protected:
+  public:
     Video();
     Video(int, int, int, std::string, std::string, float);
     ~Video();
-  public:
     virtual std::string toString(void) = 0;
     std::string getName(void);
     virtual float getRating(void);
