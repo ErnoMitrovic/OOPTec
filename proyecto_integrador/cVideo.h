@@ -20,5 +20,6 @@ class Video{
     void setRating(float);
     void setRating(float rating, int rators);
     int operator + (const Video &);
+    std::string getGenre(void);
 };
 #endif

@@ -11,8 +11,8 @@ class Episode : public Video{
     Episode();
     Episode(int, int, int, std::string, std::string, float, std::string, std::string);
     ~Episode();
-    std::string toString() override;
-    float getRating();
+    std::string toString(void) override;
+    float getRating(void);
 };
 
 #endif
