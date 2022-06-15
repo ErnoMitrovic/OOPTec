@@ -7,13 +7,16 @@ using namespace std;
 
 class Series{
   private:
+    int id, length, rators;
+    string name, genre;
+    float rating;
     vector <Episode*> episodes;
-    string name;
 
   public:
     Series();
-    Series(string);
+    Series(int _id, int _length, int _rators, string _name, string _genre, float _rating);
     Series(vector <Episode*> &, string);
+    Series(string);
     ~Series();
     string toString(void);
     float avgRating(void);

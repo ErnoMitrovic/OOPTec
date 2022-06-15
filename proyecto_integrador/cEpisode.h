@@ -7,13 +7,15 @@ using namespace std;
 
 class Episode : public Video{
   private: 
-    string title, season;
+    int episode, season;
+    string title;
   public:
     Episode();
-    Episode(int, int, int, string, string, float, string, string);
+    Episode(int, int, int, string, string, float, int, string, int);
     ~Episode();
     string toString(void) override;
     float getRating(void);
+    string getTitle(void);
 };
 
 #endif

@@ -2,9 +2,11 @@
 
 Series::Series(vector <Episode*> & eps, string _name) : episodes(eps), name(_name){}
 
-Series::Series(string _name) : name(_name) {}
+Series::Series(int _id, int _length, int _rators, string _name, string _genre, float _rating) : id(_id), length(_length), rators(_rators), name(_name), genre(_genre), rating(_rating) {}
 
-Series::Series(): Series("DEF"){}
+Series::Series(string _name) : name(_name) { }
+
+Series::Series() : Series("DEF"){}
 
 Series::~Series(){
   episodes.clear();

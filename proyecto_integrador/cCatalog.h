@@ -1,10 +1,12 @@
 #pragma once
 #include "cSeries.h"
 #include "cMovie.h"
+#include "cComparator.h"
 #include <fstream>
 #include <string>
 #include <sstream>
 #include <algorithm>
+#include <cstddef>
 using namespace std;
 
 class Catalog{
@@ -25,8 +27,8 @@ class Catalog{
     void showByGenre(string);
     void showByRating(float);
     void showMoviesByRating(float);
-    void showEpisodesByRating(float, Series);
-    void rateVideo(float, int);
+    void showEpisodesByRating(float, string);
+    void rateVideo(string, float);
     void menu();
     
 };
