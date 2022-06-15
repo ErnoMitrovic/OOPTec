@@ -3,23 +3,27 @@
 #ifndef __VIDEO
 #define __VIDEO
 #include <string>
+#include <vector>
+#include <iostream>
+
+using namespace std;
 
 class Video{
   private:
     int id, length, rators;
-    std::string name, genre;
+    string name, genre;
     float rating;
   protected:
     Video();
-    Video(int, int, int, std::string, std::string, float);
+    Video(int, int, int, string, string, float);
     ~Video();
   public:
-    virtual std::string toString(void) = 0;
-    std::string getName(void);
+    virtual string toString(void) = 0;
+    string getName(void);
     virtual float getRating(void);
     void setRating(float);
     void setRating(float rating, int rators);
     int operator + (const Video &);
-    std::string getGenre(void);
+    string getGenre(void);
 };
 #endif

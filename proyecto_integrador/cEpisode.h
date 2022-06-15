@@ -3,15 +3,16 @@
 #ifndef __EPISODE
 #define __EPISODE
 #include "cVideo.h"
+using namespace std;
 
 class Episode : public Video{
   private: 
-    std::string title, season;
+    string title, season;
   public:
     Episode();
-    Episode(int, int, int, std::string, std::string, float, std::string, std::string);
+    Episode(int, int, int, string, string, float, string, string);
     ~Episode();
-    std::string toString(void) override;
+    string toString(void) override;
     float getRating(void);
 };
 

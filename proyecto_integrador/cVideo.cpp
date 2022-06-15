@@ -2,7 +2,7 @@
 
 // TODO: documentacion
 
-Video::Video(int _id, int _length, int _rators, std::string _name, std::string _genre, float _rating)
+Video::Video(int _id, int _length, int _rators, string _name, string _genre, float _rating)
 : id(_id), length(_length), rators(_rators), name(_name), genre(_genre), rating(_rating) {}
 
 Video::Video() : Video(1, 20, 10, "DEF", "DEF", 3.f) {}
@@ -12,21 +12,21 @@ Video::~Video() {
   genre.clear();
 }
 
-std::string Video::toString(){
-  std::string info = "";
-  info += "ID: " + std::to_string(id) + "\n" 
-    + "LENGTH: " + std::to_string(length) + " min\n"
-    + "RATORS: " + std::to_string(rators) + "\n"
+string Video::toString(){
+  string info = "";
+  info += "ID: " + to_string(id) + "\n" 
+    + "LENGTH: " + to_string(length) + " min\n"
+    + "RATORS: " + to_string(rators) + "\n"
     + "NAME: " + name + "\n"
     + "GENRE: " + genre + "\n";
   return info;
 }
 
-std::string Video::getName(){
+string Video::getName(){
   return name;
 }
 
-std::string Video::getGenre(){
+string Video::getGenre(){
   return genre;
 }
 

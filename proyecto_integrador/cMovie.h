@@ -4,12 +4,14 @@
 #define __MOVIE
 #include "cVideo.h"
 
+using namespace std;
+
 class Movie : public Video{
   public:
     Movie();
-    Movie(int, int, int, std::string, std::string, float);
+    Movie(int _id, string _name, int _length, string _genre, float _rating,int _rators);
     ~Movie();
-    std::string toString(void) override;
+    string toString(void) override;
     float getRating(void);
 };
 

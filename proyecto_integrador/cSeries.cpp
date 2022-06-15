@@ -1,8 +1,8 @@
 #include "cSeries.h"
 
-Series::Series(std::vector <Episode*> & eps, std::string _name) : episodes(eps), name(_name){}
+Series::Series(vector <Episode*> & eps, string _name) : episodes(eps), name(_name){}
 
-Series::Series(std::string _name) : name(_name) {}
+Series::Series(string _name) : name(_name) {}
 
 Series::Series(): Series("DEF"){}
 
@@ -11,9 +11,9 @@ Series::~Series(){
   name.clear();
 }
 
-std::string Series::toString(){
-  std::string info = "";
-  for(std::vector<Episode*>::iterator i = episodes.begin(); i != episodes.end(); i++){
+string Series::toString(){
+  string info = "";
+  for(vector<Episode*>::iterator i = episodes.begin(); i != episodes.end(); i++){
     info += (*i) -> toString();
   }
   return info;
@@ -25,21 +25,25 @@ int Series::getLength(){
 
 float Series::avgRating(){
   float rt = 0;
-  for(std::vector<Episode*>::iterator i = episodes.begin(); i != episodes.end(); i++){
+  for(vector<Episode*>::iterator i = episodes.begin(); i != episodes.end(); i++){
     rt += (*i) -> getRating();
   }
   rt /= getLength();
   return rt;
 }
 
-std::vector <Episode*> & Series::getEpisodes(){
+vector <Episode*> & Series::getEpisodes(){
   return episodes;
 }
 
-std::string Series::getGenre(){
+string Series::getGenre(){
   return episodes[0]->getGenre();
 }
 
-std::string Series::getName(){
+string Series::getName(){
   return name;
+}
+
+void Series::addEpisode(Episode * ep){
+  episodes.push_back(ep);
 }
