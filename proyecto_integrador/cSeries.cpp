@@ -15,6 +15,11 @@ Series::~Series(){
 
 string Series::toString(){
   string info = "";
+  info += "SERIES NAME: " + name + "\n"
+    + "SERIES GENRE: " + getGenre() + "\n"
+    + "SERIES LENGTH: " + to_string(getLength()) + "\n"
+    + "SERIES RATING: " + to_string(avgRating()) + "\n"+
+    "-- EPISODES --\n"; 
   for(vector<Episode*>::iterator i = episodes.begin(); i != episodes.end(); i++){
     info += (*i) -> toString();
   }
