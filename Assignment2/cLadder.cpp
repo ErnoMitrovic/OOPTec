@@ -17,7 +17,7 @@ public:
  * @param _reward reward value
  */
 Ladder::Ladder(int _num, int _reward) : Tile(_num), reward(_reward){
-    setType('S');
+    setType('L');
 }
 
 /**

@@ -28,7 +28,6 @@ int * Board::randomize(const int N, const int MAX, const int MIN = 0){
   }
   return nums;
 }
-
 /**
  * @brief Construct a new Board object
  * 
@@ -69,12 +68,13 @@ Board::~Board(){}
  */
 std::string Board::toString(){
   std::string info = "";
-  for(int i = 0; i < 30; i++){ 
+  for(int i = 0; i < matrixBoard.size(); i++){ 
     info += matrixBoard[i]->getType();
     info += ' ';
     if((i + 1)% 6   == 0)
       info += '\n';
   }
+  info += '\n';
   return info;
 }
 
