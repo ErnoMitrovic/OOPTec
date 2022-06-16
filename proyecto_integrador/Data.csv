@@ -1,0 +1,14 @@
+ID,NAME,LENGTH (min),GENRE,RATING (IMDb),RATORS,SERIES OR MOVIE,EPISODE,TITLE,SEASON
+1,Treasure Planet,95,Adventure,3.55,116000,Movie,,,
+2,Underworld,121,Thriller,3.5,267000,Movie,,,
+3,Black Panther,135,Action,3.65,727000,Movie,,,
+4,The Boys,60,Satire,4.35,12473,Series,1,The Name of the Game,1
+5,The Boys,59,Satire,4.25,10579,Series,2,Cherry,1
+6,The Boys,54,Satire,4.2,9890,Series,3,Get Some,1
+7,Game of Thrones,51,Action,4.25,33000,Series,7,The Broken Man,6
+8,Game of Thrones,58,Action,4.15,36805,Series,8,No one,6
+9,Game of Thrones,59,Action,4.95,205061,Series,9,Battle of the Bastards,6
+10,Game of Thrones,68,Action,4.95,144705,Series,10,Winds of Winter,6
+11,Alf,24,Comedy,3.7,209,Series,1,A.L.F,1
+12,Alf,24,Comedy,3.65,202,Series,2,Strangers in the Night,1
+13,Alf,23,Comedy,3.85,205,Series,3,Looking for Lucky,1
