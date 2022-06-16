@@ -24,14 +24,12 @@ string Series::toString(){
 int Series::getLength(){
   return episodes.size();
 }
-
 float Series::avgRating(){
-  float rt = 0;
-  for(vector<Episode*>::iterator i = episodes.begin(); i != episodes.end(); i++){
-    rt += (*i) -> getRating();
+  Episode e;
+  for(auto i = episodes.begin(); i != episodes.end(); i++){
+    e+*(*i);
   }
-  rt /= getLength();
-  return rt;
+  return e.getRating()/((float) getLength());
 }
 
 vector <Episode*> & Series::getEpisodes(){

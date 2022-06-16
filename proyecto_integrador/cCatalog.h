@@ -16,8 +16,10 @@ class Catalog{
 
     vector <string> split(string original, string delimiter);
     vector <string> readFileToStringVector(string filename);
+
     int stringToInt(string s);
     float stringToFloat(string s);
+    float validateRating(float);
   public:
 
     Catalog();

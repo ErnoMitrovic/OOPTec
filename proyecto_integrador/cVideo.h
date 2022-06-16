@@ -25,5 +25,6 @@ class Video{
     void setRating(float rating, int rators);
     int operator + (const Video &);
     string getGenre(void);
+    int getRators(void);
 };
 #endif
