@@ -31,6 +31,7 @@ class Catalog{
     void showMoviesByRating(float);
     void showEpisodesByRating(float, string);
     void rateVideo(string, float);
-    void menu();
+    string toString(void);
+    void menu(void);
     
 };

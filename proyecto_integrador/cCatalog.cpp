@@ -5,8 +5,21 @@
       cout << movies.at(0)->toString();
   }
 
+string Catalog::toString(){
+  string info = "CATALOG INFO\n";
+  info += "- Series -\n";
+  for(auto it = series.begin(); it != series.end(); it++){
+    info += (*it)->toString();
+  }
+  info += "- Movies -\n";
+  for(auto it = movies.begin(); it != movies.end(); it++){
+    info += (*it)->toString();
+  }
+  return info;
+}
+
 float Catalog::validateRating(float rating){
-  if(rating < 0 || rating > 5)
+  if(rating < 1 || rating > 5)
     throw 1;
   return rating;
 }
