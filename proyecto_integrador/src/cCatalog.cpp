@@ -18,7 +18,7 @@ string Catalog::toString(){
   return info;
 }
 
-float Catalog::idateidateRating(float rating){
+float Catalog::validateRating(float rating){
   if(rating < 1 || rating > 5)
     throw 1;
   return rating;
